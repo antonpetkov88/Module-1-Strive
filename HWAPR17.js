@@ -12,7 +12,7 @@ const crazySum = function (c, d){
    }
 if(c === d){
     console.log(crazySum*3);
-} else (c != d); {
+} else (c !== d); {
     console.log(crazySum);
 }
  
