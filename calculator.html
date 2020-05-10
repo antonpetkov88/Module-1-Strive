@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8"> 
+
+        <title>Strive Calculator</title>
+        <style>
+        body {
+            background: #181818;
+        }
+
+        #calculator {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
+        input[type="button"] {
+            font-size: 50px;
+            width: 100px;
+            height: 100px;
+
+
+        }
+
+        .numericButton {
+            background-color: grey;
+            color: green;
+        }
+
+        #result {
+            font-size: 80px;
+            width: 200px;
+            height: 100px;
+        }
+        </style>
+    </head>
+
+<body>
+    <div id= "calculator">
+        <table>
+            <tr>
+                <td colspan="4">
+                    <input type="text" id= "result"
+                    value= "0" disabled>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type= "button" value= 7 
+                    class= "numericButton" value= "7">
+                </td>
+                <td>
+                    <input type= "button" value= 8
+                    class= "numericButton" value= "8">
+                </td>
+                <td>
+                    <input type= "button" value= 9
+                    class= "numericButton" value= "9">
+                </td>
+                <td>
+                    <input type= "button" value= *
+                    class= "numericButton" value= "*">
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <input type= "button" value= 4
+                    class= "numericButton" value= "4">
+                </td>
+                <td><input type= "button" value= 5
+                    class= "numericButton" value= "5">
+                </td>
+
+                <td>
+                    <input type= "button" value= 6 
+                    class= "numericButton" value= "6">
+                </td>
+
+                <td>
+                    <input type= "button" value= - 
+                    class= "numericButton" value= "-">
+
+            </tr>
+            <tr>
+                <td>
+                    <input type= "button" value= 1
+                    class= "numericButton" value= "1">
+                </td>
+                <td>
+                    <input type= "button" value= 2
+                    class= "numericButton" value= "3">
+                </td>
+                <td>
+                    <input type= "button" value= 3
+                    class= "numericButton" value= "3">
+                    
+                </td>
+                <td>
+                    <input type= "button" value= +
+                    class= "numericButton" value= "+">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type= "button" value= C
+                    class= "numericButton" value= "C">
+                </td>
+                <td>
+                    <input type= "button" value= 0
+                    class= "numericButton" value= "0">
+                </td>
+                <td>
+                    <input type= "button" 
+                    class= "numericButton" value= "=">
+                    
+                </td>
+                <td>
+                    <input type= "button" value= /
+                    class= "numericButton" value= "/">
+                </td>
+            </tr>
+
+
+        </table>
+    </div>
+    <script>
+        window.addEventListener("DOMContentLoaded",
+        function() {
+            console.log("DOM LOADED")
+            let operation = ""
+            let previousResult = 0
+
+            const sum = function (x, y) {
+                return x + y
+            }
+
+            const diff = function (x, y) {
+                return x - y
+            }
+            
+            const mul = function (x, y) {
+                return x * y
+            }
+
+            const divi = function (x, y) {
+                return x / y
+            }
+
+            const numericButtonPressed = function (event) {
+                const numberPressed = event.target.value
+                console.log(numberPressed)
+                const result = document.getElementById("result")
+                if (result.value === "0") {
+                    result.value = numberPressed
+                }
+                else {
+                    result.value = result.value + numberPressed
+                }
+                } 
+            const functionButtonPressed = function (event) {
+            const keyPressed = event.target.value
+            console.log(keyPressed)
+            const result = document.getElementById("result")
+            switch (keyPressed) {
+                case "=":
+                    switch (operation) {
+                        case "+":
+                            result.value = sum(previousResult, parseFloat(result.value))
+                            break;
+                        case "-":
+                            result.value = diff(previousResult, parseFloat(result.value))
+                            break;
+                        case "*":
+                            result.value = mul(previousResult, parseFloat(result.value))
+                            break;
+                        case "/":
+                            result.value = divi(previousResult, parseFloat(result.value))
+                            break;
+                        default:
+                            console.log("Default Case")
+                    }
+                    break;
+                case "C":
+                    console.log("I'm the C button")
+                    result.value = "0"
+                    previousResult = 0
+                    break;
+                default:
+                    console.log("Key Pressed: ", keyPressed)
+                    previousResult = parseFloat(result.value)
+                    operation = keyPressed
+                    result.value = "0"
+            }
+            }
+
+            const numericButtons = document.getElementsByClassName("numericButton")
+            
+
+            const functionButtons = document.getElementsByClassName("functionButton")
+            
+            for (let button of numericButtons) {
+                button.addEventListener("click", numericButtonPressed)
+            }    
+        }
+        )
+        </script>
+</body>
+</html>
