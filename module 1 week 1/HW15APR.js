@@ -41,7 +41,7 @@ Verify then, that name1 and name2 are equals if both lowercase (without changing
 
 let name1 = "john";
 let name2 = "John";
-if (name1 == name2) {
+if (name1 === name2) {
     console.log("Names are equal");
 } else {
     console.log("Names are not equal");
@@ -66,20 +66,52 @@ Create the variable X (value less than 10). Write the code to print the literal 
 */
 
 let y = 8;
-if (y == 1) {
+
+if (y === 1) {
     console.log("one");
-} else if (y == 2) {
+} else if (y === 2) {
     console.log("two");
-} else if (y == 8) {
+} else if (y === 3) {
+    console.log("three");
+} else if (y === 4) {
+    console.log("four");
+} else if (y === 5) {
+    console.log("five");
+} else if (y === 6) {
+    console.log("six");
+} else if (y === 7) {
+    console.log("seven");
+} else if (y === 8) {
     console.log("eight");
+} else if (y === 9) {
+    console.log("nine");
 }
 
 /* EXERCISE 7
 Insert a value in a variable based on the resut of a ternary if
 */
 
-let students = 30;
-let tutors = 5;
-let check;
-check = (students > tutors) ? "True" : "False";
-console.log(check);
+let productionYear = 2020;
+let car = "unknown";
+
+if(productionYear<=2020 && productionYear>=2015){
+    car="new car"
+    console.log("Car : " + car);
+}
+
+else if(productionYear<=2014 && productionYear>=2000){
+    car="not so old car"
+    console.log("Car : "+ car);
+}
+
+else if(productionYear<=1999 && productionYear>=1979){
+    car="old car"
+    console.log("Generation : "+generation);
+}
+
+else if(productionYear<=1944 && productionYear>=1900){
+    car="antique"
+    console.log("Car : "+ car);
+}
+
+
