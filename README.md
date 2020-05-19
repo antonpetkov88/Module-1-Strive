@@ -1,2 +1,2 @@
-# Module-1-Strive
-JavaScript exercise
+# strive-school-homeworks
+JavaScript exercises
