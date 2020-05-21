@@ -5,6 +5,8 @@ Create and array with the first 5 positive numbers
 
 let listOfNumbers = [1, 2, 3, 4, 5];
 
+// also possible syntax => let [1, 2, 3, 4, 5] = listOfNumbers;
+
 
 /* EXERCISE 2
 Create an object containing your name, surname, email address and age.
@@ -108,6 +110,8 @@ let Car = {
     model: "6",
     licencePlate: "M7878"
 }
+
+// also we san say let {brand, model, licencePlate} = Car; => shorter syntax
 
 let Car1 = Object.assign({}, Car);
 Car1.licencePlate = "C1245";
