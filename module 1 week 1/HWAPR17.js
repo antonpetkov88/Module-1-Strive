@@ -97,16 +97,13 @@ Write a function "reverseString" to reverse programmatically a given string
 */
 
 const reverseString = (s) => {
-   try {
     if(typeof s==="string"){
         return s.split("").reverse().join("");
     }
     else{
      throw new Error("s must be a string")
      }
-   } catch (e) {
-    throw new Error(e)
-   }
+   
 }
 
 
@@ -116,7 +113,6 @@ Write a function "upperFirst" to capitalize the first letter of each word of a
 given string passed as parameter
 */
 const upperFirst = (s) => {
-    try{
         if(typeof s==="string"){
             let words = s.trim().split(" ");
             let sentence = words.map(word=>word.replace(word[0],word[0].toUpperCase())).join(" ")
@@ -125,10 +121,7 @@ const upperFirst = (s) => {
         else{
             throw new Error("s must be a string")
         }
-    }
-    catch(e){
-        throw new Error(e)
-    }
+    
  }
 
 
@@ -138,23 +131,57 @@ Write a function "cutString" to create a new string without the first and last
 character of a given string.
 */
 
-const cutString = (s) => {
    
+let cutString = (str) => {
+    if (typeof str==="string"){
+    let newString = str.substring(1, str.length - 1);
+    console.log(newString)
 
+}
+else{
+    throw new Error("s must be a string")
+}
 }
 
 
 
 /* EXERCISE 10
 Write a function "giveMeRandom" which accepts a number n and returns an array 
-containing n random numbers between 0 and 10
+containing n random numbers between 0 and 10 //check how to create a random 
+number between 0 and 10
 */
 
 const giveMeRandom = (number) => {
     let array=[];
-
+    if(typeof number==="number"&& number <=10){ // otherwise it will not generate unique numbers
+        for(let i=0; i<number;){
+            let random = Math.ceil(Math.random()*10);
+            if(!array.includes(random)){
+                array.push(random)
+                i++
+            }
+          
+        }
+    }
+    return array;
 }
 
+// or
+
+const giveMeRandom = (number) => {
+    let array=[];
+    if(typeof number==="number"){ 
+        for(let i=0; i<number;){
+            let random = Math.floor(Math.random()*11);
+            if(!array.includes(random)){
+                array.push(random)
+                i++
+            }
+          
+        }
+    }
+    return array;
+}
 
 /* WHEN YOU ARE FINISHED
 Commit and push the code to your personal GitHub repository and share the 
